@@ -5,7 +5,7 @@ import pickle
 app = Flask(__name__)
 model = pickle.load(open('model.pkl', 'rb'))
 
-@app.route('/')
+@app.route('/enter')
 def home():
     return render_template('index.html')
 
@@ -22,7 +22,7 @@ def predict():
 
     return render_template('index.html', prediction_text='Employee Salary should be $ {}'.format(output))
 
-@app.route('/upload')  
+@app.route('/')  
 def upload():  
     return render_template("file_upload_form.html")  
  
